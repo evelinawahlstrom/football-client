@@ -8,19 +8,28 @@ import Home from './components/Home'
 
 
 
+
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
+      <main>
+      <header>
+      <h1>Welcome to the Football Management Site</h1></header>
         <div>
-          <Link to='/'> Home </Link>
-          <Link to='/teams'> Teams </Link>
-          <Route path="/" exact component={Home} />
+        <Route path="/" exact component={Home} />
+        <ul>
+        <li><Link to='/'> Home </Link></li>
+        <li><Link to='/teams'> Teams </Link></li> 
+        </ul>
           <Route path="/teams" component={TeamsListContainer} />
         </div>
+        </main>
       </Provider>
     );
   }
 }
 
 export default App
+
+
