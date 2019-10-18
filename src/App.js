@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import { Route, Link } from 'react-router-dom'
 import TeamsListContainer from './components/TeamsListContainer'
 import Home from './components/Home'
+import TeamDetailsContainer from './components/TeamDetailsContainer'
 
 
 
@@ -22,7 +23,8 @@ class App extends Component {
         <li><Link to='/'> Home </Link></li>
         <li><Link to='/teams'> Teams </Link></li> 
         </ul>
-          <Route path="/teams" component={TeamsListContainer} />
+          <Route path="/teams" exact component={TeamsListContainer} />
+          <Route path="/teams/:id" exact component={TeamDetailsContainer} />
         </div>
         </main>
       </Provider>

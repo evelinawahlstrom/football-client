@@ -4,6 +4,8 @@ export const TEAMS_FETCHED = 'TEAMS_FETCHED'
 
 export const TEAM_CREATE_SUCCESS = 'TEAM_CREATE_SUCCESS'
 
+export const FETCH_TEAM_SUCCESS = 'FETCH_TEAM_SUCCESS'
+
 const baseUrl = 'http://localhost:4000'
 
 const teamsFetched = teams => ({
@@ -17,7 +19,7 @@ export const loadTeams = () => (dispatch, getState) => {
   if (getState().teams.length !== 0) return
   
   // a GET /TEAMS request
-  request(`${baseUrl}/teams`)
+  request(`${baseUrl}/teams/`)
     .then(response => {
       // dispatch an TEAMS_FETCHED action that contains the TEAMS
       dispatch(teamsFetched(response.body))
@@ -38,4 +40,19 @@ export const createTeam = (data) => dispatch => {
       dispatch(teamCreateSuccess(response.body))
     })
     .catch(console.error)
+}
+
+
+const fetchTeamSuccess = team => ({
+    type: FETCH_TEAM_SUCCESS,
+    payload: team
+})
+
+export const loadTeam = (id) => (dispatch, getState) => {
+    console.log('CAN WE GET THE STATE??', getState())
+    request(`${baseUrl}/teams/${id}`)
+        .then(response => {
+            console.log(response)
+            dispatch(fetchTeamSuccess(response.body))
+        })
 }
