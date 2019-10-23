@@ -5,26 +5,20 @@ import TeamForm from './TeamForm'
 
 class CreateTeamFormContainer extends React.Component {
   state = {
-    name: '',
-    date: '',
-    description: ''
+    name: ""
   }
 
-  onChange = (team) => {
+  onChange = event => {
     this.setState({
-      [team.target.name]: team.target.value,
-      [team.target.date]: team.target.value,
-      [team.target.description]: team.target.value
+      [event.target.name]: event.target.value
     })
   }
 
-  onSubmit = (team) => {
-    team.preventDefault()
+  onSubmit = event => {
+    event.preventDefault()
     this.props.createTeam(this.state)
     this.setState({
-      name: '',
-      date: '',
-      description: ''
+      name: ""
     })
   }
 
@@ -38,9 +32,9 @@ class CreateTeamFormContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    team: state.team
+    event: state.event
   })
 
-export default connect(mapStateToProps, {createTeam})(CreateTeamFormContainer)
+export default connect(mapStateToProps, { createTeam })(CreateTeamFormContainer)
 
-// {createTeam}, is the object we want to dispatch!!!
+// {createevent}, is the object we want to dispatch!!!

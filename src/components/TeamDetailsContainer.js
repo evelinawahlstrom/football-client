@@ -5,13 +5,12 @@ import {loadTeam, updateTeam, deleteTeam} from '../actions/teams'
 
 class TeamDetailsContainer extends React.Component {
   componentDidMount() {
-      console.log("hello")
     this.props.loadTeam(Number(this.props.match.params.id))
   }
 
   render() {
-    return <TeamDetails team={this.props.team} />
     console.log(this.props.team)
+    return <TeamDetails team={this.props.team} />
   }
 }
 
