@@ -36,6 +36,8 @@ const teamCreateSuccess = team => ({
 
 export const createTeam = (data) => (dispatch, getState) => {
   const token = getState().auth;
+  // .send(data) is only here because of superagent 
+  // we want to send back the created team, in the body
   request
     .post(`${baseUrl}/teams`)
     .set("Authorization", `Bearer ${token}`)
@@ -66,10 +68,13 @@ const deleteTeamSuccess = teamId => ({
   payload: teamId
 });
 
-export const deleteTeam = id => (dispatch, getState) => {
+export const deleteTeam = (id) => (dispatch, getState) => {
+  const token = getState().auth;
   request
     .delete(`${baseUrl}/teams/${id}`)
+    .set("Authorization", `Bearer ${token}`)
     .then(response => {
-      dispatch(deleteTeamSuccess(id));
+      dispatch(deleteTeamSuccess(response.body))
     })
+    .catch(console.error)
   }
