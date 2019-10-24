@@ -6,6 +6,8 @@ export const TEAM_CREATE_SUCCESS = 'TEAM_CREATE_SUCCESS'
 
 export const FETCH_TEAM_SUCCESS = 'FETCH_TEAM_SUCCESS'
 
+export const DELETE_TEAM_SUCCESS = "DELETE_TEAM_SUCCESS";
+
 const baseUrl = 'http://localhost:4000'
 
 const teamsFetched = teams => ({
@@ -50,7 +52,7 @@ const fetchTeamSuccess = team => ({
     payload: team
 })
 
-export const loadTeam = (id) => (dispatch, getState) => {
+export const loadTeam = id => (dispatch, getState) => {
     console.log('CAN WE GET THE STATE??', getState())
     request(`${baseUrl}/teams/${id}`)
         .then(response => {
@@ -58,3 +60,16 @@ export const loadTeam = (id) => (dispatch, getState) => {
             dispatch(fetchTeamSuccess(response.body))
         })
 }
+
+const deleteTeamSuccess = teamId => ({
+  type: DELETE_TEAM_SUCCESS,
+  payload: teamId
+});
+
+export const deleteTeam = id => (dispatch, getState) => {
+  request
+    .delete(`${baseUrl}/teams/${id}`)
+    .then(response => {
+      dispatch(deleteTeamSuccess(id));
+    })
+  }

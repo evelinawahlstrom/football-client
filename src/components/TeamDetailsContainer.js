@@ -2,6 +2,9 @@ import React from 'react'
 import {connect} from 'react-redux'
 import TeamDetails from './TeamDetails'
 import {loadTeam, updateTeam, deleteTeam} from '../actions/teams'
+import CreatePlayerContainer from "./CreatePlayerContainer";
+//import DeleteTeamButtonContainer from "./DeleteTeamButtonContainer";
+import { Link } from "react-router-dom";
 
 class TeamDetailsContainer extends React.Component {
   componentDidMount() {
@@ -10,12 +13,25 @@ class TeamDetailsContainer extends React.Component {
 
   render() {
     console.log(this.props.team)
-    return <TeamDetails team={this.props.team} />
+    return (
+      <>
+        <TeamDetails team={this.props.team} />
+        {this.props.loggedIn ? (
+          <CreatePlayerContainer teamId={this.props.team.id} />
+        ) : (
+          <Link to="/login">Please log in to add players to this team.</Link>
+        )}
+      </>
+    );
   }
 }
 
 const mapStateToProps = state => ({
-  team: state.team
-})
+  team: state.team,
+  loggedIn: !!state.auth
+});
 
-export default connect(mapStateToProps, {loadTeam})(TeamDetailsContainer)
+export default connect(
+  mapStateToProps,
+  { loadTeam }
+)(TeamDetailsContainer);
