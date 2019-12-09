@@ -23,14 +23,14 @@ The backend can be found **[HERE](https://github.com/evelinawahlstrom/football-a
 
 2. cd into the folder football-client
 
-3. In the terminal:
+3. In the terminal run:
 
-```run npm install```
+```npm install```
 
 Before launching the app( with npm start ), please make sure that the server side is up and running.
 -  Checkout the **[Server ReadMe](https://github.com/evelinawahlstrom/football-api)** to install and run the server.
 
-4.  In the terminal:
+4.  In the terminal run:
 
 ```npm start ```
 - The app runs in the development mode on http://localhost:3000 in the browser.
