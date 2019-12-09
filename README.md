@@ -2,6 +2,9 @@
 
 ## What this project is about:
 
+## Related Repositories 
+The backend can be found **[HERE](https://github.com/evelinawahlstrom/football-api)**
+
 ## Table of contents:
 - **[Technologies used](#technologies-used)**
 - **[How to install](#how-to-install)**
@@ -25,7 +28,7 @@
 ```run npm install```
 
 Before launching the app( with npm start ), please make sure that the server side is up and running.
--  Checkout the **[Server ReadMe]()** to install and run the server.
+-  Checkout the **[Server ReadMe](https://github.com/evelinawahlstrom/football-api)** to install and run the server.
 
 4.  In the terminal:
 
