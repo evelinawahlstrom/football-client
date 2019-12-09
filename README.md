@@ -20,10 +20,17 @@
 
 2. cd into the folder football-client
 
-3. Run npm install and Before launching the app( with npm start ), please make sure that the server side is up and running.
+3. In the terminal:
+
+```run npm install```
+
+Before launching the app( with npm start ), please make sure that the server side is up and running.
 -  Checkout the **[Server ReadMe]()** to install and run the server.
 
-4. Run npm start. The app runs in the development mode on http://localhost:3000 in the browser.
+4.  In the terminal:
+
+```npm start ```
+- The app runs in the development mode on http://localhost:3000 in the browser.
 
 ## Create React App
 
