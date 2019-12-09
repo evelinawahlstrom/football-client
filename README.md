@@ -1,4 +1,4 @@
-# :soccer: FOOTBALL APP :soccer:
+# :soccer: FOOTBALL MANAGEMENT APP :soccer:
 
 ## What this project is about:
 This webpage was made during week 6/11 of the **[Codaisseur Full Stack Developer BootCamp](https://codaisseur.com/become-a-developer)** with the intention of practising developing a full stack application. 
@@ -43,7 +43,6 @@ Before launching the app( with npm start ), please make sure that the server sid
 This project was developer with the help of using the create-react-app cli.
 
 **[The standard create-react-app docs can be found in here](./create-react-app-docs.md)**
-
 
 ## Features working
 
