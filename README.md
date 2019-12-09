@@ -1,6 +1,9 @@
 # :soccer: FOOTBALL APP :soccer:
 
 ## What this project is about:
+This webpage was made during week 6/11 of the **[Codaisseur Full Stack Developer BootCamp](https://codaisseur.com/become-a-developer)** with the intention of practising developing a full stack application. 
+</br>
+**THIS IS THE CLIENT**
 
 ## Related Repositories 
 The backend can be found **[HERE](https://github.com/evelinawahlstrom/football-api)**
@@ -10,10 +13,10 @@ The backend can be found **[HERE](https://github.com/evelinawahlstrom/football-a
 - **[How to install](#how-to-install)**
 - **[Create React App docs](#create-react-app)**
 - **[Features working](#features-working)**
-- **[My progress](#my-progress)**
 - **[To do](#to-do)**
 
 ## Technologies used
+React, Redux & dependencies related to them
 
 ## How to install
 
@@ -43,10 +46,6 @@ This project was developer with the help of using the create-react-app cli.
 
 
 ## Features working
- 
-
-## My progress
-
 
 ## To do
 
