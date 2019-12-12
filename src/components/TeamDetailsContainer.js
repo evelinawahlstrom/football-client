@@ -1,6 +1,6 @@
 import React from 'react'
-import {connect} from 'react-redux'
 import TeamDetails from './TeamDetails'
+import {connect} from 'react-redux'
 import { loadTeam } from '../actions/teams'
 import CreatePlayerContainer from "./CreatePlayerContainer";
 import DeleteTeamButtonContainer from "./DeleteTeamButtonContainer";

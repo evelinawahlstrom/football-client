@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteTeam } from '../actions/teams';
-import { Redirect } from 'react-router-dom';
+import {  } from 'react-router-dom';
 
 class DeleteTeamButtonContainer extends Component {
   state = {

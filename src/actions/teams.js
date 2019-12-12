@@ -68,13 +68,16 @@ const deleteTeamSuccess = teamId => ({
   payload: teamId
 });
 
+
+/// OBSOBSOBS: When deleting a team, we don't need a getState, because we're 
+//  not returning a state, just deleting an (id)
 export const deleteTeam = (id) => (dispatch, getState) => {
-  const token = getState().auth;
+const token = getState().auth;
   request
     .delete(`${baseUrl}/teams/${id}`)
     .set("Authorization", `Bearer ${token}`)
     .then(response => {
-      dispatch(deleteTeamSuccess(response.body))
+      dispatch(deleteTeamSuccess(id))
     })
     .catch(console.error)
   }
