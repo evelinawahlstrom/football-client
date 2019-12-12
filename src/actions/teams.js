@@ -6,6 +6,8 @@ export const TEAM_CREATE_SUCCESS = 'TEAM_CREATE_SUCCESS'
 
 export const FETCH_TEAM_SUCCESS = 'FETCH_TEAM_SUCCESS'
 
+export const DELETE_TEAM_SUCCESS = "DELETE_TEAM_SUCCESS";
+
 const baseUrl = 'http://localhost:4000'
 
 const teamsFetched = teams => ({
@@ -34,6 +36,8 @@ const teamCreateSuccess = team => ({
 
 export const createTeam = (data) => (dispatch, getState) => {
   const token = getState().auth;
+  // .send(data) is only here because of superagent 
+  // we want to send back the created team, in the body
   request
     .post(`${baseUrl}/teams`)
     .set("Authorization", `Bearer ${token}`)
@@ -50,7 +54,7 @@ const fetchTeamSuccess = team => ({
     payload: team
 })
 
-export const loadTeam = (id) => (dispatch, getState) => {
+export const loadTeam = id => (dispatch, getState) => {
     console.log('CAN WE GET THE STATE??', getState())
     request(`${baseUrl}/teams/${id}`)
         .then(response => {
@@ -58,3 +62,22 @@ export const loadTeam = (id) => (dispatch, getState) => {
             dispatch(fetchTeamSuccess(response.body))
         })
 }
+
+const deleteTeamSuccess = teamId => ({
+  type: DELETE_TEAM_SUCCESS,
+  payload: teamId
+});
+
+
+/// OBSOBSOBS: When deleting a team, we don't need a getState, because we're 
+//  not returning a state, just deleting an (id)
+export const deleteTeam = (id) => (dispatch, getState) => {
+const token = getState().auth;
+  request
+    .delete(`${baseUrl}/teams/${id}`)
+    .set("Authorization", `Bearer ${token}`)
+    .then(response => {
+      dispatch(deleteTeamSuccess(id))
+    })
+    .catch(console.error)
+  }

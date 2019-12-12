@@ -31,10 +31,7 @@ class CreateTeamFormContainer extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-    event: state.event
-  })
-
-export default connect(mapStateToProps, { createTeam })(CreateTeamFormContainer)
-
-// {createevent}, is the object we want to dispatch!!!
+export default connect(
+  null,
+  { createTeam }
+)(CreateTeamFormContainer);
